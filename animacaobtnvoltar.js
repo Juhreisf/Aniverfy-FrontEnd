@@ -1,4 +1,3 @@
-
 function createConfetti() {
     const button = document.querySelector('.back-button');
     const rect = button.getBoundingClientRect();
