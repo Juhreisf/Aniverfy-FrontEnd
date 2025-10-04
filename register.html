@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register teste</title>
+    <link rel="stylesheet" href="register.css">
+  </head>
+  <body>
+    <section class="contenderRegister">
+      <div class="button-container">
+        <button class="back-button" onclick="createConfetti()">
+            <span class="arrow">←</span>
+            <span>VOLTAR</span>
+        </button>
+      </div>
+
+      <h1 class="tituloRegister">Bem vinda!</h1>
+
+      <main class="register">
+        <form class="formRegister">
+          <div class="boxLegendaInput">
+            <label class="legendaRegister">Nome completo</label>
+            <input
+              type="text"
+              id="nameRegister"
+              placeholder="digite seu nome"
+              class="btnRegister"
+            />
+          </div>
+
+          <div class="boxLegendaInput">
+            <label class="legendaRegister">Data de nascimento</label>
+            <input type="date" id="dataRegister" class="btnRegister" />
+          </div>
+
+          <div class="boxLegendaInput">
+            <label class="legendaRegister">Email</label>
+            <input
+              type="email"
+              id="usernameRegister"
+              placeholder="example@gmail.com"
+              class="btnRegister"
+            />
+          </div>
+
+          <div class="boxLegendaInput">
+            <label class="legendaRegister">Senha</label>
+            <input
+              type="password"
+              id="passwordRegister"
+              placeholder="********"
+              class="btnRegister"
+            />
+          </div>
+
+          <div class="boxLegendaInput">
+            <label class="legendaRegister">Repetir Senha</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="********"
+              class="btnRegister"
+            />
+          </div>
+
+          <div class="btnEnviar">
+            <button type="button" id="enviarRegister">Enviar</button>
+          </div>
+        </form>
+      </main>
+    </section>
+    <script src="animacaobtnvoltar.js"></script>
+  </body>
+</html>
