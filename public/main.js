@@ -1,5 +1,6 @@
-import login from './Templates/login.js';
-import register from './Templates/register.js';
+import loginPage from './Templates/login.js';
+import registerPage from './Templates/register.js';
+import dashboardPage from './Templates/dashboard.js';
 
 const main = document.querySelector('#root');
 
@@ -7,12 +8,16 @@ const init = () => {
     main.innerHTML = '';
     switch (window.location.hash) {
         case '#/register':
-            main.appendChild(register());
+            main.appendChild(registerPage());
             break;
         case '#/login':
-        case '#/':
+            main.appendChild(loginPage());
+            break;
+        case '#/dashboard':
+            main.appendChild(dashboardPage());
+            break;
         default:
-            main.appendChild(login());
+            window.location.hash = '#/register'; // ou '#/login', se quiser
     }
 };
 
