@@ -1,4 +1,4 @@
-function createConfetti() {
+export function createConfetti(callback) {
     const button = document.querySelector('.back-button');
     const rect = button.getBoundingClientRect();
     const colors = ['#ff6b9d', '#ffa06b', '#ffd93d', '#6bcf7f', '#4fc3f7', '#9b59b6', '#e74c3c', '#3498db'];
@@ -39,7 +39,7 @@ function createConfetti() {
         }, duration * 1000);
 
         setTimeout(() => {
-             window.location.href = './index.html';
+             if (callback) callback();
         }, 1000);
 
     }

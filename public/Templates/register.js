@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>register teste</title>
-    <link rel="stylesheet" href="css/register.css">
-  </head>
-  <body>
-    <section class="contenderRegister">
+import { createConfetti } from '/public/js/utils/animacaobtnvoltar.js';
+
+export default () => {
+    const container = document.createElement('div');
+
+    const template = `
+        <section class="contenderRegister">
       <div class="button-container">
-        <button class="back-button" onclick="createConfetti()">
+        <button class="back-button" id="backButton">
             <span class="arrow">←</span>
             <span>VOLTAR</span>
         </button>
@@ -70,6 +67,23 @@
         </form>
       </main>
     </section>
-    <script src="js/animacaobtnvoltar.js"></script>
-  </body>
-</html>
+    `;
+    
+    container.innerHTML = template;
+
+    setTimeout(() => {
+        const backButton = container.querySelector('#backButton');
+        
+        if (backButton) {
+            backButton.addEventListener('click', () => {
+                createConfetti(() => {
+                    window.location.hash = '#/login';
+                });
+            });
+        } else {
+            console.error('Botão #backButton não encontrado!');
+        }
+    }, 0);
+
+    return container;
+}
