@@ -93,6 +93,7 @@ export default () => {
   /** 
    * Função: Inicializa eventos do template
    * (colocada dentro de setTimeout para garantir que o HTML esteja renderizado)
+   * Não esquecer de colocar modal para os termos de uso.
    */
   setTimeout(() => {
     const backButton = container.querySelector('#backButton');

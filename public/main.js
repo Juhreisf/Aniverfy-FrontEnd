@@ -17,7 +17,7 @@ const init = () => {
             main.appendChild(dashboardPage());
             break;
         default:
-            window.location.hash = '#/register'; // ou '#/login', se quiser
+            window.location.hash = '#/login'; // ou '#/login', se quiser
     }
 };
 
