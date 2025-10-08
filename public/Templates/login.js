@@ -19,19 +19,27 @@ export default () => {
 
                 <div class="features-list">
                     <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
+                        <div class="feature-icon">
+                            <i data-lucide="target"></i>
+                        </div>
                         <span>Planejamento inteligente e intuitivo</span>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">👥</div>
+                        <div class="feature-icon">
+                            <i data-lucide="users"></i>
+                        </div>
                         <span>Gestão completa de convidados</span>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">📅</div>
+                        <div class="feature-icon">
+                            <i data-lucide="calendar-clock"></i>
+                        </div>
                         <span>Lembretes automáticos de datas</span>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">✨</div>
+                        <div class="feature-icon">
+                            <i data-lucide="sparkles"></i>
+                        </div>
                         <span>Templates personalizados</span>
                     </div>
                 </div>
@@ -80,8 +88,20 @@ export default () => {
 
     container.innerHTML = template;
 
-    // ✅ Usar setTimeout e container.querySelector
+    //  Inicializar os ícones Lucide
     setTimeout(() => {
+        // Carregar biblioteca Lucide se ainda não estiver carregada
+        if (typeof lucide === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/lucide@latest';
+            script.onload = () => {
+                lucide.createIcons();
+            };
+            document.head.appendChild(script);
+        } else {
+            lucide.createIcons();
+        }
+
         const loginForm = container.querySelector('#loginForm');
 
         if (loginForm) {
@@ -100,7 +120,7 @@ export default () => {
                 // Credenciais de teste
                 if (usuario === 'admin' && senha === '123') {
                     mostrarMensagem('Login realizado com sucesso!', 'sucesso');
-                    // ✅ Redirecionar para dashboard após login
+                    // Redirecionar para dashboard após login
                     setTimeout(() => {
                         window.location.hash = '#/dashboard';
                     }, 1500);
