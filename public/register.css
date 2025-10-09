@@ -1,78 +1,226 @@
-* {
-    margin: 0;
-    padding: 0;
+/* ===== PÁGINA DE CADASTRO - SEM SCROLL ===== */
+
+.register-page-background {
+    background: linear-gradient(135deg, #f5f5f5 0%, #fce4ec 50%, #f8bbd0 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden; /* ✅ Impede scroll */
+}
+
+.register-container {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    width: 100%;
+    padding: 30px 50px; /* ✅ Reduzido de 40px para 30px */
+    max-height: 95vh; /* ✅ Garante que cabe na tela */
+    overflow-y: auto; /* ✅ Scroll interno se necessário */
+}
+
+.register-container .logo-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px; /* ✅ Reduzido de 10px */
+}
+
+.register-container .logo-brand img {
+    width: 45px; /* ✅ Reduzido de 50px */
+    height: 45px;
+    object-fit: contain;
+}
+
+.register-container .logo-brand .brand {
+    font-size: 28px; /* ✅ Reduzido de 32px */
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #5F27CD 0%, #C44569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 25px; /* ✅ Reduzido de 35px */
+}
+
+.register-header h2 {
+    color: #333;
+    font-size: 26px; /* ✅ Reduzido de 28px */
+    font-weight: 700;
+    margin-bottom: 5px; /* ✅ Reduzido de 8px */
+}
+
+.register-header p {
+    color: #666;
+    font-size: 13px; /* ✅ Reduzido de 14px */
+}
+
+.register-form {
+    width: 100%;
+}
+
+.register-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.register-form .form-group {
+    margin-bottom: 15px; /* ✅ Reduzido de 20px */
+}
+
+.register-form .form-group label {
+    display: block;
+    color: #333;
+    font-size: 13px; /* ✅ Reduzido de 14px */
+    font-weight: 600;
+    margin-bottom: 6px; /* ✅ Reduzido de 8px */
+}
+
+.register-form .form-group input {
+    width: 100%;
+    padding: 12px 16px; /* ✅ Reduzido de 14px 18px */
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 14px; /* ✅ Reduzido de 15px */
+    transition: all 0.3s;
+    background: #f9fafb;
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+.register-form .form-group input:focus {
+    outline: none;
+    border-color: #5F27CD;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(95, 39, 205, 0.1);
 }
 
-.button-container {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
+.register-form .form-group input::placeholder {
+    color: #9ca3af;
 }
 
-.back-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff6b9d 0%, #ffa06b 50%, #ffd93d 100%);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    /* Reduzido para ficar mais compacto */
+.register-form .btn-submit {
+    width: 100%;
+    padding: 14px; /* ✅ Reduzido de 16px */
+    background: linear-gradient(135deg, #C44569 0%, #5F27CD 100%);
     color: white;
-    font-size: 8px;
-    font-weight: bold;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 10;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px; /* ✅ Reduzido de 16px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(95, 39, 205, 0.3);
+    margin-top: 5px; /* ✅ Reduzido de 10px */
 }
 
-.back-button:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.5);
+.register-form .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(95, 39, 205, 0.4);
 }
 
-.back-button:active {
-    transform: scale(0.95);
+.register-form .btn-submit:active {
+    transform: translateY(0);
 }
 
-.arrow {
-    font-size: 18px;
-    /* Tamanho bom para a seta */
-    line-height: 1;
+.register-container .login-link {
+    text-align: center;
+    color: #666;
+    font-size: 13px; /* ✅ Reduzido de 14px */
+    margin-top: 15px; /* ✅ Reduzido de 25px */
 }
 
-/* Estilos para o confete */
-.confetti {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
+.register-container .login-link a {
+    color: #5F27CD;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-@keyframes confetti-fall {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
+.register-container .login-link a:hover {
+    color: #C44569;
+    text-decoration: underline;
+}
+
+.register-container #mensagem {
+    display: none;
+    margin-top: 15px; /* ✅ Reduzido de 20px */
+    padding: 12px 16px; /* ✅ Reduzido de 14px 18px */
+    border-radius: 12px;
+    font-size: 13px; /* ✅ Reduzido de 14px */
+    font-weight: 500;
+    text-align: center;
+}
+
+.register-container #mensagem.sucesso {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #34d399;
+}
+
+.register-container #mensagem.erro {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #f87171;
+}
+
+/* Responsivo - Tablet */
+@media (max-width: 1024px) {
+    .register-page-background {
+        padding: 20px;
     }
 
-    100% {
-        transform: translate(var(--offset-x), var(--offset-y)) rotate(var(--rotation));
-        opacity: 0;
+    .register-container {
+        max-width: 600px;
+        padding: 30px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-page-background {
+        padding: 15px;
+    }
+
+    .register-container {
+        padding: 25px;
+    }
+
+    .register-form .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .register-header h2 {
+        font-size: 22px;
+    }
+
+    .register-container .logo-brand .brand {
+        font-size: 24px;
+    }
+}
+
+/* Responsivo - Mobile */
+@media (max-width: 480px) {
+    .register-page-background {
+        padding: 10px;
+    }
+
+    .register-container {
+        padding: 25px 20px;
+    }
+
+    .register-container .logo-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .register-container .logo-brand .brand {
+        font-size: 22px;
     }
 }
