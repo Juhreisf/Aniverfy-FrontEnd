@@ -1,0 +1,356 @@
+/* styles/termos.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.termos-page-background {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #5F27CD 0%, #C44569 40%, #FF6B9D 70%, #F9CA24 100%);
+  background-attachment: fixed;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.termos-container {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.termos-header {
+  background: linear-gradient(135deg, #5F27CD 0%, #C44569 100%);
+  color: white;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  border-radius: 20px 20px 0 0;
+}
+
+.btn-voltar {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.btn-voltar:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateX(-5px);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.logo-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo-brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logo-brand .brand {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.termos-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.termos-content {
+  padding: 40px;
+  line-height: 1.8;
+  color: #333;
+  max-height: none;
+  overflow: visible;
+}
+
+.last-update {
+  background: #f0f4ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #5F27CD;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.termos-content h2 {
+  color: #5F27CD;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #5F27CD;
+}
+
+.termos-content h3 {
+  color: #C44569;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.termos-content h4 {
+  color: #555;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.termos-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.termos-content ul, .termos-content ol {
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.termos-content li {
+  margin-bottom: 10px;
+}
+
+.important-box {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.important-box h4 {
+  color: #856404;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.important-box ul {
+  margin-top: 10px;
+}
+
+.highlight-box {
+  background: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.highlight-box h4 {
+  color: #0c5460;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.commitment-box {
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+  border-left: 4px solid #ff6b9d;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.commitment-box h4 {
+  color: #c7254e;
+  margin-top: 0;
+}
+
+.info-box {
+  background: #e8f4ff;
+  border-left: 4px solid #5F27CD;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.info-box h4 {
+  color: #5F27CD;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contact-section {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.contact-section h3 {
+  color: #5F27CD;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.contact-info a {
+  color: #5F27CD;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+  color: #C44569;
+}
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+  margin: 40px 0;
+}
+
+.termos-footer {
+  background: #f8f9fa;
+  padding: 30px;
+  margin-top: 0;
+  text-align: center;
+  border-top: 2px solid #e0e0e0;
+  border-radius: 0 0 20px 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #5F27CD;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #C44569;
+  text-decoration: underline;
+}
+
+.footer-links .separator {
+  color: #ccc;
+  font-weight: normal;
+}
+
+.copyright {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+strong {
+  color: #5F27CD;
+  font-weight: 600;
+}
+
+/* Garantir que não há altura fixa em nenhum elemento pai */
+#app, .app-container, .main-content {
+  height: auto !important;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .termos-page-background {
+    padding: 20px 10px;
+  }
+
+  .termos-container {
+    margin-bottom: 20px;
+  }
+
+  .termos-content {
+    padding: 25px 20px;
+  }
+
+  .termos-header {
+    padding: 30px 20px;
+  }
+
+  .termos-header h1 {
+    font-size: 28px;
+  }
+
+  .btn-voltar {
+    position: static;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .logo-brand .brand {
+    font-size: 24px;
+  }
+
+  .termos-content h2 {
+    font-size: 20px;
+  }
+
+  .termos-content h3 {
+    font-size: 18px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-links .separator {
+    display: none;
+  }
+}
