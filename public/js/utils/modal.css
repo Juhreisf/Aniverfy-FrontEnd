@@ -1,0 +1,240 @@
+/* styles/modal.css */
+
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.7);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 10001;
+}
+
+.custom-modal.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  animation: iconPop 0.5s ease 0.3s both;
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-icon.success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(17, 153, 142, 0.4);
+}
+
+.modal-icon.error {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(235, 51, 73, 0.4);
+}
+
+.modal-icon.warning {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(247, 151, 30, 0.4);
+}
+
+.modal-icon.info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-message {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+  white-space: pre-line;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.modal-btn:active {
+  transform: translateY(0);
+}
+
+.modal-btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Animação de entrada do modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .modal-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .modal-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .modal-btn {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .modal-content {
+    padding: 25px 15px;
+  }
+
+  .modal-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-message {
+    font-size: 13px;
+  }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .custom-modal,
+  .modal-content,
+  .modal-icon,
+  .modal-btn {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+  .modal-content {
+    background: #1e1e1e;
+    color: #ffffff;
+  }
+
+  .modal-title {
+    color: #ffffff;
+  }
+
+  .modal-message {
+    color: #cccccc;
+  }
+
+  .modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}

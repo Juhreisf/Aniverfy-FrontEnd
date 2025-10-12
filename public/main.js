@@ -1,6 +1,8 @@
 import loginPage from './Templates/login.js';
 import registerPage from './Templates/register.js';
 import dashboardPage from './Templates/dashboard.js';
+import termsofusePage from './Templates/termsofuse.js';
+import privacypolicyPage from './Templates/privacypolicy.js';
 
 const main = document.querySelector('#root');
 
@@ -16,8 +18,14 @@ const init = () => {
         case '#/dashboard':
             main.appendChild(dashboardPage());
             break;
+        case '#/termsofuse':
+            main.appendChild(termsofusePage());
+            break;
+        case '#/privacypolicy':
+            main.appendChild(privacypolicyPage());
+            break;
         default:
-            window.location.hash = '#/login'; // ou '#/login', se quiser
+            window.location.hash = '#/login';
     }
 };
 

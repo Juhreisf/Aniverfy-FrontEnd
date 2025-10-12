@@ -1,6 +1,7 @@
 import { registerUser } from '../js/api.js';
 import { tratarRespostaBackend } from '../js/utils/tratamentodeerros.js';
 import { inicializarValidacaoRealTime, mostrarErrosBackend } from '../js/utils/validacaoRealTime.js';
+import { mostrarSucesso, mostrarErro } from '../js/utils/modal.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -53,7 +54,8 @@ export default () => {
           
           <div class="terms">
             <input type="checkbox" id="termsCheckbox" required />
-            <label for="termsCheckbox">Eu aceito os <a href="#">Termos de Serviço</a> e a <a href="#">Política de Privacidade</a></label>
+            <label for="termsCheckbox">Eu aceito os <a href="#/termsofuse">Termos de Serviço</a> e a <a href="#/privacypolicy">Política de Privacidade</a></label>
+            <span class="error-message" id="errorTerms"></span>
           </div>
           
           <button type="submit" class="btn-submit">Enviar</button>
@@ -99,6 +101,14 @@ export default () => {
       const password = inputs.password.value;
       const confirmPassword = inputs.confirmPassword.value;
 
+      // Debug - Verificar dados coletados
+      console.log("📋 Dados coletados:");
+      console.log("  name:", name);
+      console.log("  birthDate:", birthDate);
+      console.log("  email:", email);
+      console.log("  password:", password);
+      console.log("  confirmPassword:", confirmPassword);
+
       // Desabilitar botão
       submitBtn.disabled = true;
       submitBtn.textContent = '⏳ Criando conta...';
@@ -109,11 +119,15 @@ export default () => {
         formData.append("nome", name);
         formData.append("email", email);
         formData.append("senha", password);
-
+        formData.append("Confirmar Senha", confirmPassword);
         
         // Converter data de YYYY-MM-DD para DD-MM-YYYY
         const [year, month, day] = birthDate.split('-');
         const dataFormatada = `${day}-${month}-${year}`;
+        
+        console.log("📅 Data original:", birthDate);
+        console.log("📅 Data formatada:", dataFormatada);
+        
         formData.append("data_nascimento", dataFormatada);
 
         // Debug
@@ -130,25 +144,32 @@ export default () => {
         const resposta = tratarRespostaBackend(result);
 
         if (resposta.sucesso) {
-          alert(resposta.mensagem);
-          setTimeout(() => {
-            window.location.hash = '#/login';
-          }, 1500);
+          // ✅ USAR MODAL AO INVÉS DE ALERT
+          mostrarSucesso(
+            'Sua conta foi criada com sucesso!\nVocê será redirecionado para o login.',
+            () => {
+              window.location.hash = '#/login';
+            }
+          );
         } else {
+          // ✅ USAR MODAL PARA ERROS TAMBÉM
+          mostrarErro(resposta.mensagem);
+          
           // ✅ Mostrar erros do backend nos campos
           mostrarErrosBackend(resposta.erros, inputs, errorElements);
         }
 
       } catch (error) {
-        console.error('Erro:', error);
-        alert('❌ Erro de conexão. Tente novamente.');
+        console.error('❌ Erro completo:', error);
+        // ✅ USAR MODAL PARA ERRO DE CONEXÃO
+        mostrarErro('Erro de conexão com o servidor.\nVerifique sua internet e tente novamente.');
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
       }
-    }); // ✅ Fecha addEventListener
+    });
 
-  }, 0); // ✅ Fecha setTimeout
+  }, 0);
 
   return container;
-}; // ✅ Fecha export default
+};
