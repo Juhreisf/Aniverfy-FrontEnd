@@ -1,8 +1,8 @@
-import loginPage from './Templates/login.js';
-import registerPage from './Templates/register.js';
-import dashboardPage from './Templates/dashboard.js';
-import termsofusePage from './Templates/termsofuse.js';
-import privacypolicyPage from './Templates/privacypolicy.js';
+import loginPage from '../Templates/login.js';
+import registerPage from '../Templates/register.js';
+import dashboardPage from '../Templates/dashboard.js';
+import termsofusePage from '../Templates/termsofuse.js';
+import privacypolicyPage from '../Templates/privacypolicy.js';
 
 const main = document.querySelector('#root');
 
